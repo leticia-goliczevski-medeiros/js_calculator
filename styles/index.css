@@ -1,0 +1,8 @@
+:root {
+  --primary-color: #edf1f4; /* fundo da página e borda dos botões */
+  --secondary-color: #fff; /* fundo da calculadora, do display e dos botões */
+  --button-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px #fff; 
+  --inset-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px #fff; /* sombra dos botões pressionados (active) e display */
+  --font-color: #333; 
+  --calculator-shadow: 15px 15px 20px rgba(0, 0, 0, 0.2), -15px -15px 20px #fffb; 
+}
