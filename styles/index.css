@@ -6,6 +6,14 @@
   --font-color: #333; 
   --calculator-shadow: 15px 15px 20px rgba(0, 0, 0, 0.2), -15px -15px 20px #fffb; 
 }
+.dark-theme {
+  --primary-color: #33393e; 
+  --secondary-color: #33393e; 
+  --button-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25), -5px -5px 10px rgba(255, 255, 255, 0.1);
+  --inset-shadow: inset 15px 15px 20px rgba(0, 0, 0, 0.5), inset -15px -15px 20px rgba(255, 255, 255, 0.1); 
+  --font-color: #edf1f4;
+  --calculator-shadow: 15px 15px 20px rgba(0, 0, 0, 0.25), -15px -15px 20px rgba(255, 255, 255, 0.1);
+}
 * {
   margin: 0;
   padding: 0;
@@ -36,6 +44,7 @@
   padding-left: 5px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 .form__radio-button-overlay {
   position: absolute;
@@ -43,6 +52,7 @@
   width: 15px;
   height: 15px;
   border: 2px solid var(--font-color);
+  cursor: pointer;
 }
 .form__input_light:checked + .form__radio-button-overlay_light {
   background-color: var(--font-color);
