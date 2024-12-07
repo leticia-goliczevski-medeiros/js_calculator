@@ -117,3 +117,28 @@
 .calculator__key_span {
   grid-column: span 2;
 }
+
+@media screen and (max-width: 550px) {
+  .menu {
+    max-width: 300px;
+  }
+  .calculator {
+    width: 300px;
+    min-height: 392px;
+    padding: 20px;
+  }
+  .calculator__display {
+    min-height: 90px;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+  .calculator__upper-display {
+    font-size: 1.25rem;
+  }
+  .calculator__bottom-display {
+    font-size: 1.5rem;
+  }
+  .calculator__key {
+    font-size: 1rem;
+  }
+}
