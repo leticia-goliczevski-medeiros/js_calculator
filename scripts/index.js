@@ -19,6 +19,12 @@ class Calculator {
     this.bottomOperand = ''
     this.operation = undefined
   }
+
+  appendNumber(number) {
+    /* impede que mais de uma vírgula (ou ponto, nesse caso) seja adicionada */
+    if (number === '.' && this.bottomOperand.includes(".")) return 
+    this.bottomOperand = this.bottomOperand.toString() + number.toString(); 
+  }
  
   updateDisplay() {
     this.bottomOperandTextElement.textContent = this.bottomOperand;
@@ -27,6 +33,13 @@ class Calculator {
 }
 
 const calculator = new Calculator(upperOperandTextElement, bottomOperandTextElement);
+
+numberButtons.forEach(button => {
+  button.addEventListener('click', ()=> {
+    calculator.appendNumber(button.textContent)
+    calculator.updateDisplay()
+  })
+})
 
 clearAllButton.addEventListener('click', ()=> {
   calculator.clearAll()
