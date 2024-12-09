@@ -69,7 +69,11 @@ class Calculator {
  
   updateDisplay() {
     this.bottomOperandTextElement.textContent = this.bottomOperand;
-    this.upperOperandTextElement.textContent = this.upperOperand;
+    if (this.operation != undefined) {
+      this.upperOperandTextElement.textContent = `${this.upperOperand} ${this.operation}`;
+    } else {
+      this.upperOperandTextElement.textContent = ''
+    }
   }
 }
 
