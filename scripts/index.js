@@ -6,7 +6,6 @@ const equalsButton = document.querySelector("[data-equals]");
 const upperOperandTextElement = document.querySelector("[data-upper-operand]");
 const bottomOperandTextElement = document.querySelector("[data-bottom-operand]");
 
-
 class Calculator {
   constructor(upperOperandTextElement, bottomOperandTextElement) {
     this.upperOperandTextElement = upperOperandTextElement;
@@ -18,6 +17,10 @@ class Calculator {
     this.upperOperand = ''
     this.bottomOperand = ''
     this.operation = undefined
+  }
+
+  delete() {
+    this.bottomOperand = this.bottomOperand.toString().slice(0, -1)
   }
 
   appendNumber(number) {
@@ -96,3 +99,7 @@ clearAllButton.addEventListener('click', ()=> {
   calculator.updateDisplay()
 })
 
+deleteButton.addEventListener('click', ()=> {
+  calculator.delete()
+  calculator.updateDisplay()
+})
