@@ -25,6 +25,44 @@ class Calculator {
     if (number === '.' && this.bottomOperand.includes(".")) return 
     this.bottomOperand = this.bottomOperand.toString() + number.toString(); 
   }
+
+  chooseOperation(operation) {
+    if (this.bottomOperand === '') return /* evita que o upperOperand receba o valor de uma string vazia */
+    if (this.upperOperand !== '') {
+      this.compute()           //se já houver um número no upperOperand, calcular o novo valor
+    }
+    this.operation = operation;
+    this.upperOperand = this.bottomOperand; /* quando uma operação é adicionada, o valor que está embaixo passa para cima */
+    this.bottomOperand = ''
+  }
+
+  compute() {
+    let result;
+    const upperNumber = parseFloat(this.upperOperand);
+    const bottomNumber = parseFloat(this.bottomOperand);
+
+    if(isNaN(upperNumber) || isNaN(bottomNumber)) return //se o usuário clicar no botão de igual mas não houver números no display superior ou inferior, o cálculo não precisa ser feito
+
+    switch (this.operation) {
+      case '+':
+        result = upperNumber + bottomNumber
+        break
+      case '-':
+        result = upperNumber - bottomNumber
+        break
+      case '*':
+        result = upperNumber * bottomNumber
+        break
+      case '/':
+        result = upperNumber / bottomNumber
+        break
+      default:    //se nenhuma das opções for selecionada, é uma operação inválida e nada deve ser calculado
+        return
+    }
+    this.bottomOperand = result;
+    this.upperOperand = '';
+    this.operation = undefined;
+  }
  
   updateDisplay() {
     this.bottomOperandTextElement.textContent = this.bottomOperand;
@@ -39,6 +77,18 @@ numberButtons.forEach(button => {
     calculator.appendNumber(button.textContent)
     calculator.updateDisplay()
   })
+})
+
+operationButtons.forEach(button => {
+  button.addEventListener('click', ()=> {
+    calculator.chooseOperation(button.textContent)
+    calculator.updateDisplay()
+  })
+})
+
+equalsButton.addEventListener('click', ()=> {
+  calculator.compute()
+  calculator.updateDisplay()
 })
 
 clearAllButton.addEventListener('click', ()=> {
